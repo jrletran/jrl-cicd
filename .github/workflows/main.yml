@@ -50,4 +50,4 @@ jobs:
         PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn clean package deploy -DmuleDeploy -Dcloudhub.application.name=${{ secrets.APPLICATION_NAME }} -Dcloudhub.application.prefix=${{ secrets.APPLICATION_PREFIX }} -Dcloudhub.mule.version=${{ secrets.RUNTIME_VERSION }} -Dcloudhub.environment=${{ secrets.ANYPOINT_ENVIRONMENT }} -Dcloudhub.region=${{ secrets.RUNTIME_REGION }} -Duser.name=${{ secrets.ANYPOINT_USERNAME }} -Duser.password=${{ secrets.ANYPOINT_PASSWORD }}
+        mvn clean package deploy -DmuleDeploy -Dcloudhub.application.name=jrl-cicd -Dcloudhub.application.prefix=prc -Dcloudhub.mule.version=4.4.0 -Dcloudhub.environment=Sandbox -Dcloudhub.region=eu-central-1 -Duser.name=${{ secrets.ANYPOINT_USERNAME }} -Duser.password=${{ secrets.ANYPOINT_PASSWORD }}
