@@ -50,4 +50,6 @@ jobs:
         PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
         artifactName=$(ls *.jar | head -1)
+        run: echo "The API key is:${{env.USERNAME}}" 
+        run: echo "The API key is:${{env.PASSWORD}}"
         mvn clean package deploy -DmuleDeploy -Dcloudhub.application.name=jrl-cicd -Dcloudhub.application.prefix=prc -Dcloudhub.mule.version=4.4.0 -Dcloudhub.environment=Sandbox -Dcloudhub.region=eu-central-1 -Duser.name=mulesoft_spain_5 -Duser.password=Mulesoft_spain_5
