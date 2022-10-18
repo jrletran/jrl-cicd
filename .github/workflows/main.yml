@@ -12,5 +12,5 @@ jobs:
         USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
         PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
-        run: echo "The API key is:${{env.USERNAME}}" 
-        run: echo "The API key is:${{env.PASSWORD}}"
+        echo "The API key is:${{env.USERNAME}}" 
+        echo "The API key is:${{env.PASSWORD}}"
