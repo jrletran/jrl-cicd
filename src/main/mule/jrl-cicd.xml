@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="jrl-cicdFlow" doc:id="87559d2d-2b11-4381-bd65-a8604e835904" >
+		<scheduler doc:name="Scheduler" doc:id="b749363b-6d3f-43e2-a9e0-e340ffc9aa60" >
+			<scheduling-strategy >
+				<fixed-frequency timeUnit="HOURS"/>
+			</scheduling-strategy>
+		</scheduler>
+		<set-variable value="#[p('apli.nombre')]" doc:name="Set flow" doc:id="194d3e9c-2ffa-4b91-894a-c6d7b9d5483d" variableName="flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="116b8b14-c233-4b0c-a1bb-6c8d3e01dd53" />
+	</flow>
+</mule>
