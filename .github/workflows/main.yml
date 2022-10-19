@@ -69,7 +69,7 @@ jobs:
         name: artifacts
     - name: Deploy to CloudHub
       env:
-        ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
+        ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
       run: |
         echo "INICIO"
         rtifactName=$(ls *.jar | head -1)
