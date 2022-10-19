@@ -14,5 +14,4 @@ jobs:
         PASSWORD: MuleSoft_spain_5
       run: |
         echo "PASS: $PASSWORD"
-        echo "PASS2:" $env.PASSWORD
         echo "PASS3: ${{ secrets.ANYPOINT_USERNAME }}"
