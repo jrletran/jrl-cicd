@@ -49,7 +49,7 @@ jobs:
         ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
         echo "INICIO"
-        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./& /g'
+        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./&/g'
+        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./&/g' > TEST
+        echo $TEST
         echo "FIN"
-        artifactName=$(ls *.jar | head -1)
-        mvn clean package deploy -DmuleDeploy -Dcloudhub.application.name=jrl-cicd -Dcloudhub.application.prefix=prc -Dcloudhub.mule.version=4.4.0 -Dcloudhub.environment=Sandbox -Dcloudhub.region=eu-central-1 -Duser.name=mulesoft_spain_5 -Duser.password=${{ secrets.ANYPOINT_PASSWORD }}
