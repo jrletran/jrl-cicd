@@ -2,7 +2,7 @@
 name: TestCICD Pipeline
 on:
   pull_request:
-    branches: [main_NO_AVALAIBLE]
+    branches: [main]
 jobs:
   variables:
     runs-on: ubuntu-latest
@@ -26,4 +26,6 @@ jobs:
         echo ${{secrets.RUNTIME_REGION}} | sed 's/./& /g'
         echo "RUNTIME_VERSION"
         echo ${{secrets.RUNTIME_VERSION}} | sed 's/./& /g'
+        echo "REPO_NAME=${{ github.event.repository.name }}"
+        echo "FIN"
         echo "FIN"
