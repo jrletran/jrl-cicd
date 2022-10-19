@@ -44,11 +44,14 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: artifacts
-        PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
+    - run: 'echo "$SSH_KEY" > key'
+      shell: bash
+      env:
+        SSH_KEY: ${{secrets.ANYPOINT_PASSWORD}}
     - name: Deploy to CloudHub
       env:
-        USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
-        PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
+        USERNAME: ${{secrets.ANYPOINT_USERNAME}}
+        PASSWORD: ${{secrets.ANYPOINT_PASSWORD}}
       run: |
         artifactName=$(ls *.jar | head -1)
         echo "$PASSWORD"
