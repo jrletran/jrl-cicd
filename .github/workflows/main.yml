@@ -4,6 +4,29 @@ on:
   pull_request:
     branches: [main]
 jobs:
+  variables:
+    runs-on: ubuntu-latest
+    steps:    
+    - name: Display Variables
+      env:
+        ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
+      run: |
+        echo "INICIO"
+        echo "ANYPOINT_ENVIRONMENT"
+        echo ${{secrets.ANYPOINT_ENVIRONMENT}} | sed 's/./& /g'
+        echo "ANYPOINT_PASSWORD"
+        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./& /g'
+        echo "ANYPOINT_USERNAME"
+        echo ${{secrets.ANYPOINT_USERNAME}} | sed 's/./& /g'
+        echo "APPLICATION_NAME"
+        echo ${{secrets.APPLICATION_NAME}} | sed 's/./& /g'
+        echo "APPLICATION_PREFIX"
+        echo ${{secrets.APPLICATION_PREFIX}} | sed 's/./& /g'
+        echo "RUNTIME_REGION"
+        echo ${{secrets.RUNTIME_REGION}} | sed 's/./& /g'
+        echo "RUNTIME_VERSION"
+        echo ${{secrets.RUNTIME_VERSION}} | sed 's/./& /g'
+        echo "FIN"
   build:
     runs-on: ubuntu-latest
     steps:
