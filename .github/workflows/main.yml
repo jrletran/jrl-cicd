@@ -72,6 +72,6 @@ jobs:
         ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
       run: |
         echo "INICIO"
-        rtifactName=$(ls *.jar | head -1)
+        artifactName=$(ls *.jar | head -1)
         mvn clean package deploy -DmuleDeploy -Dcloudhub.application.name=${{ secrets.APPLICATION_NAME }} -Dcloudhub.application.prefix=${{ secrets.APPLICATION_PREFIX }} -Dcloudhub.mule.version=${{ secrets.RUNTIME_VERSION }} -Dcloudhub.environment=${{ secrets.ANYPOINT_ENVIRONMENT }} -Dcloudhub.region=${{ secrets.RUNTIME_REGION }} -Duser.name=${{ secrets.ANYPOINT_USERNAME }} -Duser.password=${{ secrets.ANYPOINT_PASSWORD }}
         echo "FIN"
