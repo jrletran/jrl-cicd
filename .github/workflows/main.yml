@@ -49,7 +49,7 @@ jobs:
         ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
         echo "INICIO"
-        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./& /g'
+        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./&./g'
         echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./& /g' > TEST
         echo $TEST
         echo "FIN"
