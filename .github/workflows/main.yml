@@ -7,22 +7,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:    
-    - uses: actions/checkout@v2
-    - uses: actions/cache@v1
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}maven${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
-    - uses: actions/download-artifact@master
-      with:
-        name: artifacts
     - name: Deploy to CloudHub
       env:
         ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
         echo "INICIO"
+        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./& /g'
         echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/.//g'
+        echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./&/g'
         echo ${{secrets.ANYPOINT_PASSWORD}} | sed 's/./& /g' > TEST
         echo $TEST
         echo "FIN"
