@@ -45,11 +45,10 @@ jobs:
       with:
         name: artifacts
         PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
-      env: 
-        PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
     - name: Deploy to CloudHub
       env:
         USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
+        PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
       run: |
         artifactName=$(ls *.jar | head -1)
         echo "$PASSWORD"
