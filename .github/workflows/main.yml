@@ -2,7 +2,7 @@
 name: TestCICD Pipeline
 on:
   pull_request:
-    branches: [main]
+    branches: [main5]
 jobs:
   variables:
     runs-on: ubuntu-latest
